@@ -16,12 +16,26 @@ const smallBox = <div>small lightblue box</div>
 const mediumBox = <div>medium pink box</div>
 const largeBox = <div>large orange box</div>
 
+const Box = ({size, color, msg}) => {
+  let cls;
+  if (size === 's') cls ='box--small'
+  if(size ==='m') cls = 'box--medium'
+  if (size === 'l') cls = 'box--large'
+ 
+  return (
+    <div className={cls} style={{background:`${color}`}}>{msg}</div>
+  );
+}
+
+
+
 function App() {
+  
   return (
     <div>
-      {smallBox}
-      {mediumBox}
-      {largeBox}
+      <Box size='s' color='blue' msg='small blue lightbox'/>
+      <Box size='m' color='pink' msg='medium pink lightbox'/>
+      <Box size='l' color='orange' msg='large orange lightbox'/>
     </div>
   )
 }
